@@ -12,7 +12,12 @@ import { ShoppingBag as ShoppingBagIcon } from "../icons/shopping-bag";
 import { User as UserIcon } from "../icons/user";
 import { UserAdd as UserAddIcon } from "../icons/user-add";
 import { Users as UsersIcon } from "../icons/users";
-import { XCircle as XCircleIcon } from "../icons/x-circle";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import PersonIcon from "@mui/icons-material/Person";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import TimelineIcon from "@mui/icons-material/Timeline";
 import { Logo } from "./logo";
 import { NavItem } from "./nav-item";
 
@@ -23,13 +28,18 @@ const items = [
     title: "Dashboard",
   },
   {
+    href: "/calendar",
+    icon: <CalendarTodayIcon fontSize="small" />,
+    title: "Calendar",
+  },
+  {
     href: "/summary",
-    icon: <UserAddIcon fontSize="small" />,
+    icon: <SummarizeIcon fontSize="small" />,
     title: "Summary",
   },
   {
     href: "/overview",
-    icon: <ShoppingBagIcon fontSize="small" />,
+    icon: <TimelineIcon fontSize="small" />,
     title: "Overview",
   },
   {
@@ -39,7 +49,7 @@ const items = [
   },
   {
     href: "/personal",
-    icon: <LockIcon fontSize="small" />,
+    icon: <PersonIcon fontSize="small" />,
     title: "Personal",
   },
   {
@@ -49,12 +59,12 @@ const items = [
   },
   {
     href: "/pay",
-    icon: <UserIcon fontSize="small" />,
+    icon: <PaymentsIcon fontSize="small" />,
     title: "Pay",
   },
   {
     href: "/time-off",
-    icon: <UserAddIcon fontSize="small" />,
+    icon: <AccessTimeIcon fontSize="small" />,
     title: "Time Off",
   },
   // {
