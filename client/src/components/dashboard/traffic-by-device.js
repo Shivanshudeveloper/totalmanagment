@@ -1,122 +1,106 @@
-import { Doughnut } from 'react-chartjs-2';
-import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } from '@mui/material';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import PhoneIcon from '@mui/icons-material/Phone';
-import TabletIcon from '@mui/icons-material/Tablet';
+import React from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  Typography,
+  useTheme,
+} from "@mui/material";
+// import faker from "faker";
 
-export const TrafficByDevice = (props) => {
-  const theme = useTheme();
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-  const data = {
-    datasets: [
-      {
-        data: [63, 15, 22],
-        backgroundColor: ['#3F51B5', '#e53935', '#FB8C00'],
-        borderWidth: 8,
-        borderColor: '#FFFFFF',
-        hoverBorderColor: '#FFFFFF'
-      }
-    ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
-  };
-
-  const options = {
-    animation: false,
-    cutoutPercentage: 80,
-    layout: { padding: 0 },
-    legend: {
-      display: false
+export const options = {
+  responsive: true,
+  interaction: {
+    mode: "index",
+    intersect: false,
+  },
+  stacked: false,
+  plugins: {
+    title: {
+      display: true,
+      text: "Total Sales",
     },
-    maintainAspectRatio: false,
-    responsive: true,
-    tooltips: {
-      backgroundColor: theme.palette.background.paper,
-      bodyFontColor: theme.palette.text.secondary,
-      borderColor: theme.palette.divider,
-      borderWidth: 1,
-      enabled: true,
-      footerFontColor: theme.palette.text.secondary,
-      intersect: false,
-      mode: 'index',
-      titleFontColor: theme.palette.text.primary
-    }
-  };
+  },
+  scales: {
+    y: {
+      type: "linear",
+      display: true,
+      position: "left",
+    },
+    y1: {
+      type: "linear",
+      display: true,
+      position: "right",
+      grid: {
+        drawOnChartArea: false,
+      },
+    },
+  },
+};
 
-  const devices = [
+const labels = ["January", "February", "March", "April", "May", "June"];
+
+export const data = {
+  labels,
+  datasets: [
     {
-      title: 'Desktop',
-      value: 63,
-      icon: LaptopMacIcon,
-      color: '#3F51B5'
+      label: "Total Sales",
+      data: labels.map(() => [2, 3, 4, 5, 6, 7]),
+      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      yAxisID: "y",
     },
     {
-      title: 'Tablet',
-      value: 15,
-      icon: TabletIcon,
-      color: '#E53935'
+      label: "Total Revenue",
+      data: labels.map(() => [10, 20, 25, 30, 60, 43]),
+      borderColor: "rgb(53, 162, 235)",
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      yAxisID: "y1",
     },
-    {
-      title: 'Mobile',
-      value: 23,
-      icon: PhoneIcon,
-      color: '#FB8C00'
-    }
-  ];
+  ],
+};
 
+const SalesChart = (props) => {
   return (
     <Card {...props}>
-      <CardHeader title="Traffic by Device" />
-      <Divider />
+      <Typography variant="h6" align="center" sx={{ marginY: "30px" }}>
+        Sales Overview
+      </Typography>
       <CardContent>
         <Box
           sx={{
-            height: 300,
-            position: 'relative'
+            position: "relative",
           }}
         >
-          <Doughnut
-            data={data}
-            options={options}
-          />
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            pt: 2
-          }}
-        >
-          {devices.map(({
-            color,
-            icon: Icon,
-            title,
-            value
-          }) => (
-            <Box
-              key={title}
-              sx={{
-                p: 1,
-                textAlign: 'center'
-              }}
-            >
-              <Icon color="action" />
-              <Typography
-                color="textPrimary"
-                variant="body1"
-              >
-                {title}
-              </Typography>
-              <Typography
-                style={{ color }}
-                variant="h4"
-              >
-                {value}
-                %
-              </Typography>
-            </Box>
-          ))}
+          <Line options={options} data={data} />
         </Box>
       </CardContent>
+      <Divider />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          p: 2,
+        }}
+      ></Box>
     </Card>
   );
 };
+
+export default SalesChart;

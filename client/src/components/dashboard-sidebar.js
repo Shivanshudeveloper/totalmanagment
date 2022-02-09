@@ -12,12 +12,15 @@ import { ShoppingBag as ShoppingBagIcon } from "../icons/shopping-bag";
 import { User as UserIcon } from "../icons/user";
 import { UserAdd as UserAddIcon } from "../icons/user-add";
 import { Users as UsersIcon } from "../icons/users";
+import BadgeIcon from "@mui/icons-material/Badge";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import PersonIcon from "@mui/icons-material/Person";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TimelineIcon from "@mui/icons-material/Timeline";
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import { Logo } from "./logo";
 import { NavItem } from "./nav-item";
 
@@ -25,7 +28,22 @@ const items = [
   {
     href: "/",
     icon: <ChartBarIcon fontSize="small" />,
-    title: "Dashboard",
+    title: "Admin Dashboard",
+  },
+  {
+    href: "/employee-dashboard",
+    icon: <BadgeIcon fontSize="small" />,
+    title: "Employee Dashboard",
+  },
+  {
+    href: "/clients",
+    icon: <PeopleAltIcon fontSize="small" />,
+    title: "Clients",
+  },
+  {
+    href: "/projects",
+    icon: <WorkspacesIcon fontSize="small" />,
+    title: "Projects",
   },
   {
     href: "/calendar",
