@@ -27,6 +27,7 @@ import PersonalInformation from './pages/PersonalInformation';
 import Tickets from './pages/Tickets';
 import Time from './pages/Time';
 import Projects from './pages/Projects';
+import Payments from './pages/Payments';
 
 // ----------------------------------------------------------------------
 
@@ -50,6 +51,7 @@ export default function Router() {
         { path: 'invoices', element: <Invoices /> },
         { path: 'overview', element: <Overview /> },
         { path: 'pay', element: <Pay /> },
+        { path: 'payments', element: <Payments /> },
         { path: 'payroll-items', element: <PayrollItems /> },
         { path: 'pay-slip', element: <Payslip /> },
         { path: 'personal', element: <Personal /> },

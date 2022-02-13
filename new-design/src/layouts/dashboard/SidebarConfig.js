@@ -44,11 +44,11 @@ const sidebarConfig = [
     path: '/dashboard/contact',
     icon: <ContactsIcon />
   },
-  {
-    title: 'customer',
-    path: '/dashboard/customer',
-    icon: <DashboardIcon />
-  },
+  // {
+  //   title: 'customer',
+  //   path: '/dashboard/customer',
+  //   icon: <DashboardIcon />
+  // },
   {
     title: 'employee dashboard',
     path: '/dashboard/employee-dashboard',
@@ -123,17 +123,12 @@ const sidebarConfig = [
     title: 'time off',
     path: '/dashboard/time-off',
     icon: <TimerOffIcon />
-  },
-  {
-    title: 'user',
-    path: '/dashboard/user',
-    icon: <PeopleAltIcon />
-  },
-  {
-    title: 'user',
-    path: '/dashboard/user',
-    icon: <PeopleAltIcon />
   }
+  // {
+  //   title: 'user',
+  //   path: '/dashboard/user',
+  //   icon: <PeopleAltIcon />
+  // },
 ];
 
 export default sidebarConfig;
